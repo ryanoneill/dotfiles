@@ -30,10 +30,9 @@ let g:airline_extensions=['branch',
 \                         'whitespace']                              " Disable other extensions by default
 let g:airline_theme='luna'                                           " Dark green color theme
 " Airline Tabline Extension Settings
-" Using Buffers as Tabs
 let g:airline#extensions#tabline#enabled=1                           " Turn on tabline extension
-let airline#extensions#tabline#show_buffers=1                        " Show buffers in tabline
-let airline#extensions#tabline#buffers_label=''                      " Don't display 'buffers' in tabline
+let g:airline#extensions#tabline#show_buffers=1                      " Show buffers in tabline
+let g:airline#extensions#tabline#buffers_label=''                    " Don't display 'buffers' text in tabline
 let g:airline#extensions#tabline#left_sep=''                         " No tabline separators
 let g:airline#extensions#tabline#left_alt_sep=''                     " No tabline separators
 let g:airline#extensions#tabline#fnametruncate=30                    " Truncate display to 30 characters

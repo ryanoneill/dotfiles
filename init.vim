@@ -24,6 +24,7 @@ set background=dark
 colorscheme greenrhino
 
 " Airline Settings
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'         " Don't display default file format
 let g:airline_extensions=['branch',
 \                         'tabline',
 \                         'whitespace']                              " Disable other extensions by default

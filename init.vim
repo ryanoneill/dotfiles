@@ -13,8 +13,11 @@ call plug#end()
 set wildmenu
 set wildmode=full
 
-" Turn on line numbers
-set number
+" General Settings
+set expandtab                                                        " Tabs as spaces
+set nowrap                                                           " Don't wrap lines
+set number                                                           " Turn on line numbers
+set tabstop=2                                                        " Tabs count for 2 spaces
 
 " Set to custom dark green color scheme
 set background=dark
@@ -37,9 +40,9 @@ let g:airline#extensions#tabline#buffer_nr_show=1                    " Show tab 
 let g:airline#extensions#tabline#fnamemod=':t'                       " Only show filename in tab
 " Airline Branch (Fugitive) Extension Settings
 let g:airline#extensions#branch#enabled=1                            " Confirm Fugitive is enabled
+let g:airline#extensions#branch#format=1                             " Show only branch tail name
 " Airline Whitespace Extension Settings
 let g:airline#extensions#whitespace#enabled=1                        " Confirm Whitespace is enabled
 let g:airline#extensions#whitespace#show_message=1                   " See the line number
 let g:airline#extensions#whitespace#trailing_format='%s'             " Only show the line number
 let g:airline#extensions#whitespace#mixed_indent_format='%s'         " Only show the line number
-" let g:airline#extensions#whitespace#

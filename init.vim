@@ -1,4 +1,4 @@
-" vim-plug plugins section
+" begin vim-plug plugins section
 call plug#begin('~/.vim/plugged')
 Plug 'derekwyatt/vim-scala'
 Plug 'ryanoneill/vim-green-rhino'

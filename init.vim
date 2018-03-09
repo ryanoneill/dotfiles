@@ -1,6 +1,7 @@
 " vim-plug plugins section
 call plug#begin('~/.vim/plugged')
 Plug 'derekwyatt/vim-scala'
+Plug 'rust-lang/rust.vim'
 Plug 'ryanoneill/vim-green-rhino'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'

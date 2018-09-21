@@ -14,9 +14,7 @@ sudo apt install mercurial
 sudo apt install darcs
 
 # Setup Path
-echo -e '\nexport PATH=~/.local/bin:$PATH' >> ~/.profile
-echo "alias workspace='cd ~/workspace'" >> ~/.profile
-echo "alias playground='cd ~/workspace/playground'" >> ~/.profile
+echo -e '\nexport PATH="$HOME/.local/bin:$PATH"' >> ~/.profile
 
 # Setup Git
 git config --global user.name "Ryan O'Neill"
@@ -66,14 +64,20 @@ sh <(curl -sL https://raw.githubusercontent.com/ocaml/opam/master/shell/install.
 # Setup Coq
 # TODO: This has issues.
 # TODO: Abstract Version Number
-export OPAMROOT=~/opam-coq.8.8.1 # installation directory
-opam init -n --comp=4.02.3 -j 4 # 2 is the number of CPU cores
-eval $(opam env)
-opam repo add coq-released http://coq.inria.fr/opam/released
-opam install coq.8.8.1 && opam pin add coq 8.8.1
+#export OPAMROOT=~/opam-coq.8.8.1 # installation directory
+#opam init -n --comp=4.02.3 -j 4 # 2 is the number of CPU cores
+#eval $(opam env)
+#opam repo add coq-released http://coq.inria.fr/opam/released
+#opam install coq.8.8.1 && opam pin add coq 8.8.1
+#echo 'export PATH="$HOME/opam-coq.8.8.1/4.02.3/bin:$PATH"' >> ~/.profile
 
 # Setup Haskell Stack
 curl -sSL https://get.haskellstack.org/ | sh
 
 # Setup Rust
 curl https://sh.rustup.rs -sSf | sh
+
+# Setup Aliases
+echo 'alias workspace="cd ~/workspace"' >> ~/.profile
+echo 'alias playground="cd ~/workspace/playground"' >> ~/.profile
+echo 'alias dotfiles="cd ~/workspace/dotfiles"' >> ~/.profile

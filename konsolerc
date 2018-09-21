@@ -1,0 +1,19 @@
+[Desktop Entry]
+DefaultProfile=rhino.profile
+
+[Favorite Profiles]
+Favorites=
+
+[KonsoleWindow]
+SaveGeometryOnExit=false
+ShowAppNameOnTitleBar=false
+ShowMenuBarByDefault=false
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAAy0AAAHiAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+Window-Maximized 640x960=true
+
+[TabBar]
+TabBarVisibility=AlwaysHideTabBar

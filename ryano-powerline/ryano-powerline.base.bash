@@ -40,32 +40,6 @@ function __powerline_user_info_prompt {
   [[ -n "${user_info}" ]] && echo "${user_info}|${color}"
 }
 
-function __powerline_ruby_prompt {
-  local ruby_version=""
-
-  if command_exists rvm; then
-    ruby_version="$(rvm_version_prompt)"
-  elif command_exists rbenv; then
-    ruby_version=$(rbenv_version_prompt)
-  fi
-
-  [[ -n "${ruby_version}" ]] && echo "${RUBY_CHAR}${ruby_version}|${RUBY_THEME_PROMPT_COLOR}"
-}
-
-function __powerline_python_venv_prompt {
-  set +u
-  local python_venv=""
-
-  if [[ -n "${CONDA_DEFAULT_ENV}" ]]; then
-    python_venv="${CONDA_DEFAULT_ENV}"
-    PYTHON_VENV_CHAR=${CONDA_PYTHON_VENV_CHAR}
-  elif [[ -n "${VIRTUAL_ENV}" ]]; then
-    python_venv=$(basename "${VIRTUAL_ENV}")
-  fi
-
-  [[ -n "${python_venv}" ]] && echo "${PYTHON_VENV_CHAR}${python_venv}|${PYTHON_VENV_THEME_PROMPT_COLOR}"
-}
-
 function __powerline_scm_prompt {
   local color=""
   local scm_prompt=""

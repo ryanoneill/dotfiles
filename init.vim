@@ -49,3 +49,8 @@ let g:airline#extensions#whitespace#enabled=1                        " Confirm W
 let g:airline#extensions#whitespace#show_message=1                   " See the line number
 let g:airline#extensions#whitespace#trailing_format='%s'             " Only show the line number
 let g:airline#extensions#whitespace#mixed_indent_format='%s'         " Only show the line number
+
+" Edit neovim config
+nnoremap <leader>en :edit ~/.config/nvim/init.vim<cr>
+" Source neovim config
+nnoremap <leader>sn :source ~/.config/nvim/init.vim<cr>

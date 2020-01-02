@@ -54,3 +54,11 @@ let g:airline#extensions#whitespace#mixed_indent_format='%s'         " Only show
 nnoremap <leader>en :edit ~/.config/nvim/init.vim<cr>
 " Source neovim config
 nnoremap <leader>sn :source ~/.config/nvim/init.vim<cr>
+" Cleanup old plugins
+nnoremap <leader>pc :PlugClean
+" Install new plugins
+nnoremap <leader>pi :PlugInstall
+" Exit terminal mode using only Escape
+tnoremap <esc> <c-\><c-n>
+" Send a true 'Escape' to terminal mode
+tnoremap <c-v><esc> <esc>

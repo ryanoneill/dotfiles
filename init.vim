@@ -1,6 +1,7 @@
 " begin vim-plug plugins section
 call plug#begin('~/.vim/plugged')
 Plug 'derekwyatt/vim-scala'
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoneill/vim-green-rhino'
 Plug 'tpope/vim-commentary'
@@ -55,10 +56,28 @@ nnoremap <leader>en :edit ~/.config/nvim/init.vim<cr>
 " Source neovim config
 nnoremap <leader>sn :source ~/.config/nvim/init.vim<cr>
 " Cleanup old plugins
-nnoremap <leader>pc :PlugClean
+nnoremap <leader>pc :PlugClean<cr>
 " Install new plugins
-nnoremap <leader>pi :PlugInstall
+nnoremap <leader>pi :PlugInstall<cr>
 " Exit terminal mode using only Escape
 tnoremap <esc> <c-\><c-n>
 " Send a true 'Escape' to terminal mode
 tnoremap <c-v><esc> <esc>
+
+" Fuzzy Finder Extension Settings (Use ctrl-p to open)
+nnoremap <c-p> :<c-u>FZF<cr>
+" Fuzzy Finder colors
+let g:fzf_colors =
+\ { 'fg':          ['fg', 'Normal'],
+\   'bg':          ['bg', 'Normal'],
+\   'hl':          ['fg', 'Comment'],
+\   'fg+':         ['fg', 'Normal'],
+\   'bg+':         ['bg', 'Visual'],
+\   'hl+':         ['fg', 'Visual'],
+\   'info':        ['fg', 'Comment'],
+\   'border':      ['fg', 'Ignore'],
+\   'prompt':      ['fg', 'LineNr'],
+\   'pointer':     ['fg', 'Normal'],
+\   'marker':      ['fg', 'Comment'],
+\   'spinner':     ['fg', 'Comment'],
+\   'header':      ['fg', 'Comment'] }

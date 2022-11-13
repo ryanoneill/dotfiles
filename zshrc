@@ -28,4 +28,5 @@ path+=('/home/ryano/.local/bin')
 path+=('/opt/node/bin')
 path+=('/opt/gcc-arm/bin')
 path+=('/opt/swift/usr/bin')
+path+=('/opt/images')
 export PATH

@@ -24,5 +24,8 @@ alias playground='cd ~/workspace/playground'
 test -r /home/ryano/.opam/opam-init/init.zsh && . /home/ryano/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 path+=('/home/ryano/bin')
+path+=('/home/ryano/.local/bin')
 path+=('/opt/node/bin')
+path+=('/opt/gcc-arm/bin')
+path+=('/opt/swift/usr/bin')
 export PATH

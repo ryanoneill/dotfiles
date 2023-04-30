@@ -5,27 +5,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Created by newuser for 5.8
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Load Antigen
 source ~/antigen.zsh
 
-# Load Antigen configuration
 antigen init ~/.antigenrc
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias playground='cd ~/workspace/playground'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# opam configuration
-test -r /home/ryano/.opam/opam-init/init.zsh && . /home/ryano/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-path+=('/home/ryano/bin')
-path+=('/home/ryano/.local/bin')
-path+=('/opt/node/bin')
-path+=('/opt/gcc-arm/bin')
-path+=('/opt/images')
-export PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

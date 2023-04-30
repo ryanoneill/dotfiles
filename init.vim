@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'derekwyatt/vim-scala'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
 Plug 'ryanoneill/vim-green-rhino'
 Plug 'tpope/vim-commentary'

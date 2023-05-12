@@ -3,7 +3,7 @@ local PlugBegin = vim.fn['plug#begin']
 local PlugEnd = vim.fn['plug#end']
 
 PlugBegin('~/.config/nvim/plugged')
-Plug('ryanoneill/vim-green-rhino')
+Plug('arcticicestudio/nord-vim')
 Plug('neoclide/coc.nvim', { branch = 'release' })
 Plug('rust-lang/rust.vim')
 Plug('tpope/vim-commentary')
@@ -18,15 +18,15 @@ vim.opt.shiftwidth = 2                                               -- Indentat
 vim.opt.softtabstop = 2                                              -- Indentation without hard tabs
 vim.opt.wrap = false                                                 -- Don't wrap lines
 vim.opt.number = true                                                -- Turn on line numbers
+vim.opt.signcolumn = 'yes'                                           -- Always show signcolumn
 
--- Set to custom dark green color scheme
-vim.opt.background = 'dark'                                          -- Dark background
-vim.cmd.colorscheme('greenrhino')                                    -- Custom theme
+-- Color Scheme Nord
+vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme
 
 -- Airline Settings
 vim.g.airline_section_c = '%t'                                       -- Show only file tail name
 vim.g.airline_extensions = {'branch', 'tabline', 'whitespace'}       -- Disable other extensions by default
-vim.g.airline_theme = 'luna'                                         -- Dark green color theme
+vim.g.airline_theme = 'nord'                                         -- Nord theme
 vim.g["airline#parts#ffenc#skip_expected_string"] = 'utf-8[unix]'    -- Don't display default file format
 
 -- Airline Tabline Settings
@@ -48,3 +48,5 @@ vim.g["airline#extensions#whitespace#enabled"] = 1                   -- Confirm 
 vim.g["airline#extensions#whitespace#show_message"] = 1              -- See the line number
 vim.g["airline#extensions#whitespace#trailing_format"] = '%s'        -- Only show the line number
 vim.g["airline#extensions#whitespace#mixed_indent_format"] = '%s'    -- Only show the line number
+
+vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments

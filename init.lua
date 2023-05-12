@@ -33,10 +33,10 @@ vim.g["airline#parts#ffenc#skip_expected_string"] = 'utf-8[unix]'    -- Don't di
 vim.g["airline#extensions#tabline#enabled"] = 1                      -- Turn on tabline extension
 vim.g["airline#extensions#tabline#show_buffers"] = 1                 -- Show buffers in tabline
 vim.g["airline#extensions#tabline#buffers_label"] = ''               -- Don't display 'buffers' text in tabline
-vim.g["airline#extensions#tabline#left_sep"] = ''                    -- No tabline separators
+vim.g["airline#extensions#tabline#left_sep"] = ' '                   -- No tabline separators
 vim.g["airline#extensions#tabline#left_alt_sep"] = ''                -- No tabline separators
 vim.g["airline#extensions#tabline#fnametruncate"] = 30               -- Truncate display to 30 characters
-vim.g["airline#extensions#tabline#buffer_nr_show"] = 1               -- Show tab numbers
+vim.g["airline#extensions#tabline#buffer_nr_show"] = 0               -- Turn off numbers (Use wildmode instead)
 vim.g["airline#extensions#tabline#fnamemod"] = ':t'                  -- Only show filename in tab
 
 -- Airline Branch (Fugitive) Extension Settings
@@ -49,4 +49,10 @@ vim.g["airline#extensions#whitespace#show_message"] = 1              -- See the 
 vim.g["airline#extensions#whitespace#trailing_format"] = '%s'        -- Only show the line number
 vim.g["airline#extensions#whitespace#mixed_indent_format"] = '%s'    -- Only show the line number
 
+-- Colorscheme Overrides
 vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments
+
+-- Buffer Next, Previous, and Close
+vim.keymap.set('n', '<leader>n', '<cmd>bnext<cr>')
+vim.keymap.set('n', '<leader>b', '<cmd>bprevious<cr>')
+vim.keymap.set('n', '<leader>x', '<cmd>bd<cr>')

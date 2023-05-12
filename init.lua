@@ -54,5 +54,5 @@ vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hin
 
 -- Buffer Next, Previous, and Close
 vim.keymap.set('n', '<leader>n', '<cmd>bnext<cr>')
-vim.keymap.set('n', '<leader>b', '<cmd>bprevious<cr>')
+vim.keymap.set('n', '<leader>p', '<cmd>bprevious<cr>')
 vim.keymap.set('n', '<leader>x', '<cmd>bd<cr>')

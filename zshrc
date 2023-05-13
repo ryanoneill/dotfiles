@@ -20,3 +20,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # To customize prompt, run `p10k configure` or edit ~/workspace/dotfiles/p10k.zsh.
 [[ ! -f ~/workspace/dotfiles/p10k.zsh ]] || source ~/workspace/dotfiles/p10k.zsh
+
+fpath+=$HOME/.zsh_functions

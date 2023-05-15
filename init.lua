@@ -13,16 +13,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-  "arcticicestudio/nord-vim",
-  {"neoclide/coc.nvim", branch = "release"},
-  "rust-lang/rust.vim",
-  "tpope/vim-commentary",
-  "tpope/vim-fugitive",
-  "vim-airline/vim-airline",
-  "vim-airline/vim-airline-themes"
-})
-
 -- General Settings
 vim.opt.expandtab = true                                             -- Tabs as spaces
 vim.opt.shiftwidth = 2                                               -- Indentation of 2 spaces
@@ -30,9 +20,6 @@ vim.opt.softtabstop = 2                                              -- Indentat
 vim.opt.wrap = false                                                 -- Don't wrap lines
 vim.opt.number = true                                                -- Turn on line numbers
 vim.opt.signcolumn = 'yes'                                           -- Always show signcolumn
-
--- Color Scheme Nord
-vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme
 
 -- Airline Settings
 vim.g.airline_section_c = '%t'                                       -- Show only file tail name
@@ -60,6 +47,22 @@ vim.g["airline#extensions#whitespace#show_message"] = 1              -- See the 
 vim.g["airline#extensions#whitespace#trailing_format"] = '%s'        -- Only show the line number
 vim.g["airline#extensions#whitespace#mixed_indent_format"] = '%s'    -- Only show the line number
 
+require("lazy").setup({
+  "arcticicestudio/nord-vim",
+  "burntsushi/ripgrep",
+  {"neoclide/coc.nvim", branch = "release"},
+  {"nvim-telescope/telescope.nvim", tag = "0.1.1", dependencies = {"nvim-lua/plenary.nvim"}},
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  "rust-lang/rust.vim",
+  "tpope/vim-commentary",
+  "tpope/vim-fugitive",
+  "vim-airline/vim-airline",
+  "vim-airline/vim-airline-themes"
+})
+
+-- Color Scheme Nord
+vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme
+
 -- Colorscheme Overrides
 vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments
 
@@ -67,3 +70,10 @@ vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hin
 vim.keymap.set('n', '<leader>n', '<cmd>bnext<cr>')
 vim.keymap.set('n', '<leader>p', '<cmd>bprevious<cr>')
 vim.keymap.set('n', '<leader>x', '<cmd>bd<cr>')
+
+-- Telescope Find
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})

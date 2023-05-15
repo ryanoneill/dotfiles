@@ -2,7 +2,7 @@ font:
   normal:
     family: FiraCode Nerd Font
     style: Regular
-  size: 24.0
+  size: 22.0
 scrolling:
   history: 100000
 selection:

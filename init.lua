@@ -1,16 +1,17 @@
-local Plug = vim.fn['plug#']
-local PlugBegin = vim.fn['plug#begin']
-local PlugEnd = vim.fn['plug#end']
+local vim = vim
 
-PlugBegin('~/.config/nvim/plugged')
-Plug('arcticicestudio/nord-vim')
-Plug('neoclide/coc.nvim', { branch = 'release' })
-Plug('rust-lang/rust.vim')
-Plug('tpope/vim-commentary')
-Plug('tpope/vim-fugitive')
-Plug('vim-airline/vim-airline')
-Plug('vim-airline/vim-airline-themes')
-PlugEnd()
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 -- General Settings
 vim.opt.expandtab = true                                             -- Tabs as spaces
@@ -19,9 +20,6 @@ vim.opt.softtabstop = 2                                              -- Indentat
 vim.opt.wrap = false                                                 -- Don't wrap lines
 vim.opt.number = true                                                -- Turn on line numbers
 vim.opt.signcolumn = 'yes'                                           -- Always show signcolumn
-
--- Color Scheme Nord
-vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme
 
 -- Airline Settings
 vim.g.airline_section_c = '%t'                                       -- Show only file tail name
@@ -49,6 +47,22 @@ vim.g["airline#extensions#whitespace#show_message"] = 1              -- See the 
 vim.g["airline#extensions#whitespace#trailing_format"] = '%s'        -- Only show the line number
 vim.g["airline#extensions#whitespace#mixed_indent_format"] = '%s'    -- Only show the line number
 
+require("lazy").setup({
+  "arcticicestudio/nord-vim",
+  "burntsushi/ripgrep",
+  {"neoclide/coc.nvim", branch = "release"},
+  {"nvim-telescope/telescope.nvim", tag = "0.1.1", dependencies = {"nvim-lua/plenary.nvim"}},
+  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  "rust-lang/rust.vim",
+  "tpope/vim-commentary",
+  "tpope/vim-fugitive",
+  "vim-airline/vim-airline",
+  "vim-airline/vim-airline-themes"
+})
+
+-- Color Scheme Nord
+vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme
+
 -- Colorscheme Overrides
 vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments
 
@@ -56,3 +70,10 @@ vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hin
 vim.keymap.set('n', '<leader>n', '<cmd>bnext<cr>')
 vim.keymap.set('n', '<leader>p', '<cmd>bprevious<cr>')
 vim.keymap.set('n', '<leader>x', '<cmd>bd<cr>')
+
+-- Telescope Find
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})

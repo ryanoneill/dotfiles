@@ -1,0 +1,25 @@
+{
+  "languageserver": {
+    "lua": {
+      "command": "/home/ryano/.config/coc/extensions/coc-lua-data/lua-language-server/bin/lua-language-server",
+      "filetypes": ["lua"],
+      "rootPatterns": [".git/"]
+    }
+ },
+ "Lua.workspace.library": [
+    "/usr/local/share/nvim/runtime/lua",
+    "/usr/local/share/nvim/runtime/lua/nvim",
+    "/usr/local/share/nvim/runtime/lua/vim",
+    "/usr/local/share/nvim/runtime/lua/vim/lsp"
+ ],
+ "Lua.workspace.preloadFileSize": 50000,
+ "Lua.workspace.maxPreload": 50000,
+ "Lua.diagnostics.libraryFiles": "Disable",
+ "Lua.diagnostics.workspaceDelay": 500,
+ "Lua.diagnostics.workspaceEvent": "OnSave",
+ "Lua.diagnostics.enable": true,
+ "Lua.diagnostics.disable": ["undefined-global", "lowercase-global"],
+ "Lua.diagnostics.globals": ["vim"],
+ "Lua.runtime.version": "Lua 5.4",
+ "Lua.completion.keywordSnippet": "Disable"
+}

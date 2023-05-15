@@ -1,16 +1,27 @@
-local Plug = vim.fn['plug#']
-local PlugBegin = vim.fn['plug#begin']
-local PlugEnd = vim.fn['plug#end']
+local vim = vim
 
-PlugBegin('~/.config/nvim/plugged')
-Plug('arcticicestudio/nord-vim')
-Plug('neoclide/coc.nvim', { branch = 'release' })
-Plug('rust-lang/rust.vim')
-Plug('tpope/vim-commentary')
-Plug('tpope/vim-fugitive')
-Plug('vim-airline/vim-airline')
-Plug('vim-airline/vim-airline-themes')
-PlugEnd()
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    "lazypath",
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  "arcticicestudio/nord-vim",
+  {"neoclide/coc.nvim", branch = "release"},
+  "rust-lang/rust.vim",
+  "tpope/vim-commentary",
+  "tpope/vim-fugitive",
+  "vim-airline/vim-airline",
+  "vim-airline/vim-airline-themes"
+})
 
 -- General Settings
 vim.opt.expandtab = true                                             -- Tabs as spaces

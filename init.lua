@@ -23,19 +23,9 @@ vim.opt.signcolumn = 'yes'                                           -- Always s
 
 -- Airline Settings
 vim.g.airline_section_c = '%t'                                       -- Show only file tail name
-vim.g.airline_extensions = {'branch', 'tabline', 'whitespace'}       -- Disable other extensions by default
+vim.g.airline_extensions = {'branch', 'whitespace'}       -- Disable other extensions by default
 vim.g.airline_theme = 'nord'                                         -- Nord theme
 vim.g["airline#parts#ffenc#skip_expected_string"] = 'utf-8[unix]'    -- Don't display default file format
-
--- Airline Tabline Settings
-vim.g["airline#extensions#tabline#enabled"] = 1                      -- Turn on tabline extension
-vim.g["airline#extensions#tabline#show_buffers"] = 1                 -- Show buffers in tabline
-vim.g["airline#extensions#tabline#buffers_label"] = ''               -- Don't display 'buffers' text in tabline
-vim.g["airline#extensions#tabline#left_sep"] = ' '                   -- No tabline separators
-vim.g["airline#extensions#tabline#left_alt_sep"] = ''                -- No tabline separators
-vim.g["airline#extensions#tabline#fnametruncate"] = 30               -- Truncate display to 30 characters
-vim.g["airline#extensions#tabline#buffer_nr_show"] = 0               -- Turn off numbers (Use wildmode instead)
-vim.g["airline#extensions#tabline#fnamemod"] = ':t'                  -- Only show filename in tab
 
 -- Airline Branch (Fugitive) Extension Settings
 vim.g["airline#extensions#branch#enabled"] = 1                       -- Confirm Fugitive is enabled
@@ -48,10 +38,13 @@ vim.g["airline#extensions#whitespace#trailing_format"] = '%s'        -- Only sho
 vim.g["airline#extensions#whitespace#mixed_indent_format"] = '%s'    -- Only show the line number
 
 require("lazy").setup({
+  {"akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons"},
   "arcticicestudio/nord-vim",
   "burntsushi/ripgrep",
   {"neoclide/coc.nvim", branch = "release"},
+  "nvim-lua/plenary.nvim",
   {"nvim-telescope/telescope.nvim", tag = "0.1.1", dependencies = {"nvim-lua/plenary.nvim"}},
+  "nvim-tree/nvim-web-devicons",
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "rust-lang/rust.vim",
   "tpope/vim-commentary",
@@ -63,19 +56,46 @@ require("lazy").setup({
 -- Color Scheme Nord
 vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme
 
--- Colorscheme Overrides
-vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments
-
 -- Set Leader explicity to \
 vim.g.mapleader = "\\"
 
 local normal_mode = 'n'
 local visual_mode = 'v'
 
+-- Setup for Bufferline (Buffers Show as Tabs Plugin)
+vim.opt.termguicolors = true
+local bufferline = require("bufferline")
+bufferline.setup({
+  options = {
+    themable = true,
+    style_preset = {
+      bufferline.style_preset.no_bold
+    },
+    diagnostics = "coc",
+    numbers = "ordinal",
+    show_buffer_close_icons = false,
+    tab_size = 12
+  }
+})
+
+-- Colorscheme Overrides
+vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments
+
 -- Buffer Next, Previous, and Close
-vim.keymap.set(normal_mode, '<leader>n', '<cmd>bnext<cr>')
-vim.keymap.set(normal_mode, '<leader>p', '<cmd>bprevious<cr>')
-vim.keymap.set(normal_mode, '<leader>x', '<cmd>bd<cr>')
+vim.keymap.set(normal_mode, '<leader>n', '<cmd>BufferLineCycleNext<cr>')
+vim.keymap.set(normal_mode, '<leader>p', '<cmd>BufferLineCyclePrevious<cr>')
+vim.keymap.set(normal_mode, '<leader>x', '<cmd>bdelete<cr>')
+
+vim.keymap.set(normal_mode, '<leader>1', '<cmd>lua require("bufferline").go_to(1, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>2', '<cmd>lua require("bufferline").go_to(2, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>3', '<cmd>lua require("bufferline").go_to(3, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>4', '<cmd>lua require("bufferline").go_to(4, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>5', '<cmd>lua require("bufferline").go_to(5, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>6', '<cmd>lua require("bufferline").go_to(6, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>7', '<cmd>lua require("bufferline").go_to(7, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>8', '<cmd>lua require("bufferline").go_to(8, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>9', '<cmd>lua require("bufferline").go_to(9, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>$', '<cmd>lua require("bufferline").go_to(-1, true)<cr>')
 
 -- Telescope Find
 local builtin = require('telescope.builtin')
@@ -100,3 +120,4 @@ local function open_source()
 end
 
 vim.keymap.set('n', '<leader>os', open_source, {})
+

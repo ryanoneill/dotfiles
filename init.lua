@@ -66,20 +66,37 @@ vim.cmd.colorscheme('nord')                                          -- Testing 
 -- Colorscheme Overrides
 vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments
 
+-- Set Leader explicity to \
+vim.g.mapleader = "\\"
+
+local normal_mode = 'n'
+local visual_mode = 'v'
+
 -- Buffer Next, Previous, and Close
-vim.keymap.set('n', '<leader>n', '<cmd>bnext<cr>')
-vim.keymap.set('n', '<leader>p', '<cmd>bprevious<cr>')
-vim.keymap.set('n', '<leader>x', '<cmd>bd<cr>')
+vim.keymap.set(normal_mode, '<leader>n', '<cmd>bnext<cr>')
+vim.keymap.set(normal_mode, '<leader>p', '<cmd>bprevious<cr>')
+vim.keymap.set(normal_mode, '<leader>x', '<cmd>bd<cr>')
 
 -- Telescope Find
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set(normal_mode, '<leader>ff', builtin.find_files, {})
+vim.keymap.set(normal_mode, '<leader>fg', builtin.live_grep, {})
+vim.keymap.set(normal_mode, '<leader>fb', builtin.buffers, {})
+vim.keymap.set(normal_mode, '<leader>fh', builtin.help_tags, {})
 
 -- Yank to Clipboard
-vim.keymap.set('n', '<leader>yc', '"+y')
+vim.keymap.set(normal_mode, '<leader>yc', '"+y')
+vim.keymap.set(visual_mode, '<leader>yc', '"+y')
 
 -- Paste Checkmark (with Space) at End of Row 
-vim.keymap.set('n', '<leader>ch', 'A ✓<esc>')
+vim.keymap.set(normal_mode, '<leader>ch', 'A ✓<esc>')
+
+-- Word Under Cursor
+local function open_source()
+  -- Rust Specific for now
+  local under_cursor = vim.fn.expand('<cword>')
+  local relative = 'src/' .. under_cursor .. '.rs'
+  vim.cmd('e ' .. relative)
+end
+
+vim.keymap.set('n', '<leader>os', open_source, {})

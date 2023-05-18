@@ -57,7 +57,7 @@ lazy.setup({
   "nvim-tree/nvim-web-devicons",
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "rust-lang/rust.vim",
-  {"ryanoneill/treble.nvim", dev = true, dependencies = {"nvim-telescope/telescope.nvim", "akinsho/bufferline.nvim"}},
+  {"ryanoneill/treble.nvim", dependencies = {"nvim-telescope/telescope.nvim", "akinsho/bufferline.nvim"}},
   "tpope/vim-commentary",
   "tpope/vim-fugitive",
   "vim-airline/vim-airline",

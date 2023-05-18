@@ -50,12 +50,14 @@ lazy.setup({
   {"akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons"},
   "arcticicestudio/nord-vim",
   "burntsushi/ripgrep",
+  "folke/neodev.nvim",
   {"neoclide/coc.nvim", branch = "release"},
   "nvim-lua/plenary.nvim",
   {"nvim-telescope/telescope.nvim", tag = "0.1.1", dependencies = {"nvim-lua/plenary.nvim"}},
   "nvim-tree/nvim-web-devicons",
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "rust-lang/rust.vim",
+  {"ryanoneill/treble.nvim", dev = true, dependencies = {"nvim-telescope/telescope.nvim", "akinsho/bufferline.nvim"}},
   "tpope/vim-commentary",
   "tpope/vim-fugitive",
   "vim-airline/vim-airline",
@@ -92,7 +94,7 @@ vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hin
 
 -- Buffer Next, Previous, and Close
 vim.keymap.set(normal_mode, '<leader>n', '<cmd>BufferLineCycleNext<cr>')
-vim.keymap.set(normal_mode, '<leader>p', '<cmd>BufferLineCyclePrevious<cr>')
+vim.keymap.set(normal_mode, '<leader>p', '<cmd>BufferLineCyclePrev<cr>')
 vim.keymap.set(normal_mode, '<leader>x', '<cmd>bdelete<cr>')
 vim.keymap.set(normal_mode, '<leader>xx', '<cmd>bdelete!<cr>')
 
@@ -109,10 +111,12 @@ vim.keymap.set(normal_mode, '<leader>$', '<cmd>lua require("bufferline").go_to(-
 
 -- Telescope Find
 local builtin = require('telescope.builtin')
+local treble = require('treble')
+
 vim.keymap.set(normal_mode, '<leader>ff', builtin.find_files, {})
 vim.keymap.set(normal_mode, '<leader>fg', builtin.live_grep, {})
-vim.keymap.set(normal_mode, '<leader>fb', builtin.buffers, {})
 vim.keymap.set(normal_mode, '<leader>fh', builtin.help_tags, {})
+vim.keymap.set(normal_mode, '<leader>fb', treble.buffers, {})
 
 -- Yank to Clipboard
 vim.keymap.set(normal_mode, '<leader>yc', '"+y')

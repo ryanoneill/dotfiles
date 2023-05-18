@@ -107,6 +107,7 @@ vim.keymap.set(normal_mode, '<leader>6', '<cmd>lua require("bufferline").go_to(6
 vim.keymap.set(normal_mode, '<leader>7', '<cmd>lua require("bufferline").go_to(7, true)<cr>')
 vim.keymap.set(normal_mode, '<leader>8', '<cmd>lua require("bufferline").go_to(8, true)<cr>')
 vim.keymap.set(normal_mode, '<leader>9', '<cmd>lua require("bufferline").go_to(9, true)<cr>')
+vim.keymap.set(normal_mode, '<leader>0', '<cmd>lua require("bufferline").go_to(10, true)<cr>')
 vim.keymap.set(normal_mode, '<leader>$', '<cmd>lua require("bufferline").go_to(-1, true)<cr>')
 
 -- Telescope Find

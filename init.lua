@@ -37,7 +37,16 @@ vim.g["airline#extensions#whitespace#show_message"] = 1              -- See the 
 vim.g["airline#extensions#whitespace#trailing_format"] = '%s'        -- Only show the line number
 vim.g["airline#extensions#whitespace#mixed_indent_format"] = '%s'    -- Only show the line number
 
-require("lazy").setup({
+local lazy = require("lazy")
+local lazy_opts = {
+  dev = {
+    path = "~/workspace",
+    patterns = {},
+    fallback = false,
+  }
+}
+
+lazy.setup({
   {"akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons"},
   "arcticicestudio/nord-vim",
   "burntsushi/ripgrep",
@@ -51,7 +60,7 @@ require("lazy").setup({
   "tpope/vim-fugitive",
   "vim-airline/vim-airline",
   "vim-airline/vim-airline-themes"
-})
+}, lazy_opts)
 
 -- Color Scheme Nord
 vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme

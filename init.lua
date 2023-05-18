@@ -85,6 +85,7 @@ vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hin
 vim.keymap.set(normal_mode, '<leader>n', '<cmd>BufferLineCycleNext<cr>')
 vim.keymap.set(normal_mode, '<leader>p', '<cmd>BufferLineCyclePrevious<cr>')
 vim.keymap.set(normal_mode, '<leader>x', '<cmd>bdelete<cr>')
+vim.keymap.set(normal_mode, '<leader>xx', '<cmd>bdelete!<cr>')
 
 vim.keymap.set(normal_mode, '<leader>1', '<cmd>lua require("bufferline").go_to(1, true)<cr>')
 vim.keymap.set(normal_mode, '<leader>2', '<cmd>lua require("bufferline").go_to(2, true)<cr>')
@@ -120,4 +121,3 @@ local function open_source()
 end
 
 vim.keymap.set('n', '<leader>os', open_source, {})
-

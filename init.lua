@@ -123,7 +123,7 @@ vim.keymap.set(normal_mode, '<leader>fb', treble.buffers, {})
 vim.keymap.set(normal_mode, '<leader>yc', '"+y')
 vim.keymap.set(visual_mode, '<leader>yc', '"+y')
 
--- Paste Checkmark (with Space) at End of Row 
+-- Paste Checkmark (with Space) at End of Row
 vim.keymap.set(normal_mode, '<leader>ch', 'A ✓<esc>')
 
 -- Word Under Cursor

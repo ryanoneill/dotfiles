@@ -1,0 +1,75 @@
+local M = {}
+
+function M.setup()
+  local whichkey = require("which-key")
+
+  local conf = {
+    window = {
+      border = "none",
+      position = "bottom",
+    },
+    presets = {
+      operators = true,
+      motions = true,
+      text_objects = true,
+      windows = true,
+      nav = true,
+      z = true,
+    }
+  }
+
+  local opts = {
+    mode = "n",
+    prefix = "<leader>",
+    buffer = nil,
+    silent = true,
+    noremap = true,
+    nowait = false,
+  }
+
+  local builtin = require("telescope.builtin")
+  local bufferline = require("bufferline")
+  local treble = require("treble")
+
+  local function goto_buffer(n)
+    return function()
+      bufferline.go_to(n, true)
+    end
+  end
+
+  local mappings = {
+    b = {
+      name = "Buffer",
+      n = { "<cmd>BufferLineCycleNext<cr>", "Next Buffer" },
+      p = { "<cmd>BufferLineCyclePrev<cr>", "Previous Buffer" },
+      x = { "<cmd>bdelete<cr>", "Close Buffer" },
+      d = { "<cmd>bdelete!<cr>", "Force Delete Buffer" },
+      l = { "<cmd>BufferLineMovePrev<cr>", "Move Buffer Left" },
+      r = { "<cmd>BufferLineMoveNext<cr>", "Move Buffer Right" },
+
+      ["1"] = { goto_buffer(1), "Buffer  1" },
+      ["2"] = { goto_buffer(2), "Buffer  2" },
+      ["3"] = { goto_buffer(3), "Buffer  3" },
+      ["4"] = { goto_buffer(4), "Buffer  4" },
+      ["5"] = { goto_buffer(5), "Buffer  5" },
+      ["6"] = { goto_buffer(6), "Buffer  6" },
+      ["7"] = { goto_buffer(7), "Buffer  7" },
+      ["8"] = { goto_buffer(8), "Buffer  8" },
+      ["9"] = { goto_buffer(9), "Buffer  9" },
+      ["0"] = { goto_buffer(10), "Buffer 10" },
+      ["$"] = { goto_buffer(-1), "Last Buffer" },
+    },
+    f = {
+      name = "Find",
+      f = { builtin.find_files, "Find File" },
+      g = { builtin.live_grep, "Live Grep" },
+      h = { builtin.help_tags, "Help Tags" },
+      b = { treble.buffers, "Find Buffer" },
+    },
+  }
+
+  whichkey.setup(conf)
+  whichkey.register(mappings, opts)
+end
+
+return M

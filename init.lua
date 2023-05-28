@@ -57,8 +57,19 @@ lazy.setup({
     name = "Rip Grep",
   },
 
-  { "folke/neodev.nvim",
+  {"folke/neodev.nvim",
     name = "Neodev",
+  },
+
+  {"folke/which-key.nvim",
+    name = "Which Key",
+    event = "VeryLazy",
+    init = function()
+      require("init.whichkey").setup()
+    end,
+    config = function()
+      require("config.whichkey").setup()
+    end,
   },
 
   {"neoclide/coc.nvim",
@@ -123,33 +134,6 @@ vim.g.mapleader = "\\"
 
 local normal_mode = 'n'
 local visual_mode = 'v'
-
--- Buffer Next, Previous, and Close
-vim.keymap.set(normal_mode, '<leader>n', '<cmd>BufferLineCycleNext<cr>')
-vim.keymap.set(normal_mode, '<leader>p', '<cmd>BufferLineCyclePrev<cr>')
-vim.keymap.set(normal_mode, '<leader>x', '<cmd>bdelete<cr>')
-vim.keymap.set(normal_mode, '<leader>xx', '<cmd>bdelete!<cr>')
-
-vim.keymap.set(normal_mode, '<leader>1', '<cmd>lua require("bufferline").go_to(1, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>2', '<cmd>lua require("bufferline").go_to(2, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>3', '<cmd>lua require("bufferline").go_to(3, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>4', '<cmd>lua require("bufferline").go_to(4, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>5', '<cmd>lua require("bufferline").go_to(5, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>6', '<cmd>lua require("bufferline").go_to(6, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>7', '<cmd>lua require("bufferline").go_to(7, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>8', '<cmd>lua require("bufferline").go_to(8, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>9', '<cmd>lua require("bufferline").go_to(9, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>0', '<cmd>lua require("bufferline").go_to(10, true)<cr>')
-vim.keymap.set(normal_mode, '<leader>$', '<cmd>lua require("bufferline").go_to(-1, true)<cr>')
-
--- Telescope Find
-local builtin = require('telescope.builtin')
-local treble = require('treble')
-
-vim.keymap.set(normal_mode, '<leader>ff', builtin.find_files, {})
-vim.keymap.set(normal_mode, '<leader>fg', builtin.live_grep, {})
-vim.keymap.set(normal_mode, '<leader>fh', builtin.help_tags, {})
-vim.keymap.set(normal_mode, '<leader>fb', treble.buffers, {})
 
 -- Yank to Clipboard
 vim.keymap.set(normal_mode, '<leader>yc', '"+y')

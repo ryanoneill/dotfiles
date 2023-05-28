@@ -21,76 +21,108 @@ vim.opt.wrap = false                                                 -- Don't wr
 vim.opt.number = true                                                -- Turn on line numbers
 vim.opt.signcolumn = 'yes'                                           -- Always show signcolumn
 
--- Airline Settings
-vim.g.airline_section_c = '%t'                                       -- Show only file tail name
-vim.g.airline_extensions = {'branch', 'whitespace'}       -- Disable other extensions by default
-vim.g.airline_theme = 'nord'                                         -- Nord theme
-vim.g["airline#parts#ffenc#skip_expected_string"] = 'utf-8[unix]'    -- Don't display default file format
-
--- Airline Branch (Fugitive) Extension Settings
-vim.g["airline#extensions#branch#enabled"] = 1                       -- Confirm Fugitive is enabled
-vim.g["airline#extensions#branch#format"] = 1                        -- Show only branch tail name
-
--- Airline Whitespace Extension Settings
-vim.g["airline#extensions#whitespace#enabled"] = 1                   -- Confirm Whitespace is enabled
-vim.g["airline#extensions#whitespace#show_message"] = 1              -- See the line number
-vim.g["airline#extensions#whitespace#trailing_format"] = '%s'        -- Only show the line number
-vim.g["airline#extensions#whitespace#mixed_indent_format"] = '%s'    -- Only show the line number
-
 local lazy = require("lazy")
 local lazy_opts = {
   dev = {
     path = "~/workspace",
     patterns = {},
     fallback = false,
-  }
+  },
+  install = {
+    missing = true,
+    colorscheme = { "nord" },
+  },
 }
 
 lazy.setup({
-  {"akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons"},
-  "arcticicestudio/nord-vim",
-  "burntsushi/ripgrep",
-  "folke/neodev.nvim",
-  {"neoclide/coc.nvim", branch = "release"},
-  "nvim-lua/plenary.nvim",
-  {"nvim-telescope/telescope.nvim", tag = "0.1.1", dependencies = {"nvim-lua/plenary.nvim"}},
-  "nvim-tree/nvim-web-devicons",
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  "rust-lang/rust.vim",
-  {"ryanoneill/treble.nvim", dependencies = {"nvim-telescope/telescope.nvim", "akinsho/bufferline.nvim"}},
-  "tpope/vim-commentary",
-  "tpope/vim-fugitive",
-  "vim-airline/vim-airline",
-  "vim-airline/vim-airline-themes"
-}, lazy_opts)
+  {"akinsho/bufferline.nvim",
+    name = "Bufferline",
+    version = "*",
+    config = function()
+      require("config.bufferline").setup()
+    end,
+    dependencies = {
+      {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
+    }
+  },
 
--- Color Scheme Nord
-vim.cmd.colorscheme('nord')                                          -- Testing out Nord color scheme
+  {"arcticicestudio/nord-vim",
+    name = "Nord Theme",
+    config = function()
+      require("config.nord").setup()
+    end,
+  },
+
+  {"burntsushi/ripgrep",
+    name = "Rip Grep",
+  },
+
+  { "folke/neodev.nvim",
+    name = "Neodev",
+  },
+
+  {"neoclide/coc.nvim",
+    name = "COC",
+    branch = "release"
+  },
+
+  {"nvim-lua/plenary.nvim",
+    name = "Plenary",
+  },
+
+  {"nvim-telescope/telescope.nvim",
+    name = "Telescope",
+    tag = "0.1.1",
+    dependencies = {
+      {"nvim-lua/plenary.nvim", name = "Plenary"},
+    }
+  },
+
+  {"nvim-tree/nvim-web-devicons",
+    name = "Web Dev Icons",
+  },
+
+  {"nvim-treesitter/nvim-treesitter",
+    name = "Treesitter",
+    build = ":TSUpdate",
+  },
+
+  {"rust-lang/rust.vim",
+    name = "Rust",
+  },
+
+  {"ryanoneill/treble.nvim",
+    name = "Treble",
+    dependencies = {
+      {"nvim-telescope/telescope.nvim", name = "Telescope"},
+      {"akinsho/bufferline.nvim", name = "Bufferline"},
+    }
+  },
+
+  {"tpope/vim-commentary",
+    name = "Commentary",
+  },
+
+  {"tpope/vim-fugitive",
+    name = "Fugitive",
+  },
+
+  {"vim-airline/vim-airline",
+    name = "Airline",
+    dependencies = {
+      {"vim-airline/vim-airline-themes", name = "Airline Themes"},
+    },
+    init = function()
+      require("init.airline").setup()
+    end,
+  },
+}, lazy_opts)
 
 -- Set Leader explicity to \
 vim.g.mapleader = "\\"
 
 local normal_mode = 'n'
 local visual_mode = 'v'
-
--- Setup for Bufferline (Buffers Show as Tabs Plugin)
-vim.opt.termguicolors = true
-local bufferline = require("bufferline")
-bufferline.setup({
-  options = {
-    themable = true,
-    style_preset = {
-      bufferline.style_preset.no_bold
-    },
-    diagnostics = "coc",
-    numbers = "ordinal",
-    show_buffer_close_icons = false,
-    tab_size = 12
-  }
-})
-
--- Colorscheme Overrides
-vim.api.nvim_set_hl(0, 'CocInlayHint', { ctermfg=8 })                -- Make hints look like comments
 
 -- Buffer Next, Previous, and Close
 vim.keymap.set(normal_mode, '<leader>n', '<cmd>BufferLineCycleNext<cr>')

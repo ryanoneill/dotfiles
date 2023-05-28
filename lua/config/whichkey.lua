@@ -2,6 +2,9 @@ local M = {}
 
 function M.setup()
   local whichkey = require("which-key")
+  local builtin = require("telescope.builtin")
+  local bufferline = require("bufferline")
+  local treble = require("treble")
 
   local conf = {
     window = {
@@ -26,10 +29,6 @@ function M.setup()
     noremap = true,
     nowait = false,
   }
-
-  local builtin = require("telescope.builtin")
-  local bufferline = require("bufferline")
-  local treble = require("treble")
 
   local function goto_buffer(n)
     return function()
@@ -66,6 +65,13 @@ function M.setup()
       h = { builtin.help_tags, "Help Tags" },
       b = { treble.buffers, "Find Buffer" },
     },
+    c = {
+      name = "COC",
+      l = { "<cmd>CocDiagnostics<cr>", "Diagnostics" },
+      n = { "<cmd>CocNext<cr>", "Next" },
+      p = { "<cmd>CocPrev<cr>", "Prev" },
+      o = { "<cmd>CocOutline<cr>", "Outline" },
+    }
   }
 
   whichkey.setup(conf)

@@ -72,6 +72,13 @@ function M.setup()
       branch = "release"
     },
 
+    {"numToStr/Comment.nvim",
+      name = "Comment",
+      config = function()
+        require("config.comment").setup()
+      end,
+    },
+
     {"nvim-lua/plenary.nvim",
       name = "Plenary",
     },
@@ -103,10 +110,6 @@ function M.setup()
         {"nvim-telescope/telescope.nvim", name = "Telescope"},
         {"akinsho/bufferline.nvim", name = "Bufferline"},
       }
-    },
-
-    {"tpope/vim-commentary",
-      name = "Commentary",
     },
 
     {"tpope/vim-fugitive",

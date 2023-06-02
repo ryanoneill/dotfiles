@@ -24,7 +24,11 @@ export NVM_DIR="$HOME/.nvm"
 fpath+=$HOME/.zsh_functions
 
 path+=/opt/bin
+path+=$HOME/.local/bin
 path+=$HOME/.local/share/coursier/bin
+
+alias gpsom='git push origin main'
+alias gplom='git pull origin main'
 
 # To customize prompt, run `p10k configure` or edit /opt/workspace/dotfiles/p10k.zsh.
 [[ ! -f /opt/workspace/dotfiles/p10k.zsh ]] || source /opt/workspace/dotfiles/p10k.zsh

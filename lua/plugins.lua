@@ -56,6 +56,13 @@ function M.setup()
       name = "Neodev",
     },
 
+    {"folke/trouble.nvim",
+      name = "Trouble",
+      dependencies = {
+        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
+      },
+    },
+
     {"folke/which-key.nvim",
       name = "Which Key",
       event = "VeryLazy",

@@ -123,15 +123,16 @@ function M.setup()
       name = "Fugitive",
     },
 
-    {"vim-airline/vim-airline",
-      name = "Airline",
+    {"nvim-lualine/lualine.nvim",
+      name = "Lualine",
       dependencies = {
-        {"vim-airline/vim-airline-themes", name = "Airline Themes"},
+        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
       },
       init = function()
-        require("init.airline").setup()
-      end,
+        require("init.lualine").setup()
+      end
     },
+
   }, lazy_opts)
 end
 

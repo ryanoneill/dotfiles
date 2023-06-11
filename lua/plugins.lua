@@ -128,8 +128,8 @@ function M.setup()
       dependencies = {
         {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
       },
-      init = function()
-        require("init.lualine").setup()
+      config = function()
+        require("config.lualine").setup()
       end
     },
 

@@ -105,6 +105,9 @@ function M.setup()
     {"nvim-treesitter/nvim-treesitter",
       name = "Treesitter",
       build = ":TSUpdate",
+      config = function()
+        require("config.treesitter").setup()
+      end,
     },
 
     {"rust-lang/rust.vim",

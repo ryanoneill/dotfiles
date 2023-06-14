@@ -74,6 +74,13 @@ function M.setup()
       end,
     },
 
+    {"lewis6991/gitsigns.nvim",
+      name = "Git Signs",
+      config = function()
+        require("config.gitsigns").setup()
+      end,
+    },
+
     {"lukas-reineke/indent-blankline.nvim",
       name = "Indent Blankline",
       config = function()
@@ -139,9 +146,6 @@ function M.setup()
       }
     },
 
-    {"tpope/vim-fugitive",
-      name = "Fugitive",
-    },
   }, lazy_opts)
 end
 

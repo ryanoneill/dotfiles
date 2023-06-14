@@ -174,6 +174,12 @@ function M.setup()
       }
     },
 
+    {"windwp/nvim-autopairs",
+      name = "Autopairs",
+      event = "InsertEnter",
+      opts = {}
+    },
+
   }, lazy_opts)
 end
 

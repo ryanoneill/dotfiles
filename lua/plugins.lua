@@ -74,6 +74,13 @@ function M.setup()
       end,
     },
 
+    {"lukas-reineke/indent-blankline.nvim",
+      name = "Indent Blankline",
+      config = function()
+        require("config.blankline").setup()
+      end,
+    },
+
     {"neoclide/coc.nvim",
       name = "COC",
       branch = "release"
@@ -88,6 +95,16 @@ function M.setup()
 
     {"nvim-lua/plenary.nvim",
       name = "Plenary",
+    },
+
+    {"nvim-lualine/lualine.nvim",
+      name = "Lualine",
+      dependencies = {
+        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
+      },
+      config = function()
+        require("config.lualine").setup()
+      end
     },
 
     {"nvim-telescope/telescope.nvim",
@@ -125,17 +142,6 @@ function M.setup()
     {"tpope/vim-fugitive",
       name = "Fugitive",
     },
-
-    {"nvim-lualine/lualine.nvim",
-      name = "Lualine",
-      dependencies = {
-        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
-      },
-      config = function()
-        require("config.lualine").setup()
-      end
-    },
-
   }, lazy_opts)
 end
 

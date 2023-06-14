@@ -71,7 +71,14 @@ function M.setup()
       n = { "<cmd>CocNext<cr>", "Next" },
       p = { "<cmd>CocPrev<cr>", "Prev" },
       o = { "<cmd>CocOutline<cr>", "Outline" },
-    }
+    },
+    t = {
+      name = "Tree",
+      t = { "<cmd>NvimTreeToggle<cr>", "Tree Toggle" },
+      f = { "<cmd>NvimTreeFocus<cr>", "Tree Focus" },
+      c = { "<cmd>NvimTreeClose<cr>", "Tree Close" },
+      o = { "<cmd>NvimTreeFindFile<cr>", "Tree Open" },
+    },
   }
 
   whichkey.setup(conf)

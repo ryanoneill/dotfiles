@@ -132,6 +132,16 @@ function M.setup()
       }
     },
 
+    {"nvim-tree/nvim-tree.lua",
+      name = "Neovim Tree",
+      config = function()
+        require("config.tree").setup()
+      end,
+      dependencies = {
+        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
+      },
+    },
+
     {"nvim-tree/nvim-web-devicons",
       name = "Web Dev Icons",
     },

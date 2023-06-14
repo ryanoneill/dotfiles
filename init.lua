@@ -1,5 +1,10 @@
 local vim = vim
 
+-- Global Settings
+vim.g.mapleader = "\\"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- General Settings
 vim.opt.expandtab = true                                             -- Tabs as spaces
 vim.opt.shiftwidth = 2                                               -- Indentation of 2 spaces
@@ -7,12 +12,10 @@ vim.opt.softtabstop = 2                                              -- Indentat
 vim.opt.wrap = false                                                 -- Don't wrap lines
 vim.opt.number = true                                                -- Turn on line numbers
 vim.opt.signcolumn = 'yes'                                           -- Always show signcolumn
+vim.opt.termguicolors = true
 
 local plugins = require("plugins")
 plugins.setup()
-
--- Set Leader explicity to \
-vim.g.mapleader = "\\"
 
 local normal_mode = 'n'
 local visual_mode = 'v'

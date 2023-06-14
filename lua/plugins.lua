@@ -155,6 +155,13 @@ function M.setup()
       end,
     },
 
+    {"phaazon/hop.nvim",
+      name = "Hop",
+      config = function()
+        require("config.hop").setup()
+      end,
+    },
+
     {"rust-lang/rust.vim",
       name = "Rust",
     },

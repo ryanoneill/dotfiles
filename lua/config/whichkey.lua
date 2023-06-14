@@ -80,6 +80,7 @@ function M.setup()
       t = { "<cmd>NvimTreeToggle<cr>", "Tree Toggle" },
       x = { "<cmd>NvimTreeClose<cr>", "Tree Close" },
     },
+    h = { "<cmd>HopWord<cr>", "Hop Word" },
   }
 
   whichkey.setup(conf)

@@ -5,6 +5,10 @@ function M.setup()
   local options = {
     theme = "nord",
     globalstatus = true,
+    options = {
+      section_separators = { left = '', right = '' },
+      component_separators = { left = '', right = '' },
+    },
   }
   lualine.setup(options)
 end

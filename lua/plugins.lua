@@ -74,6 +74,16 @@ function M.setup()
       end,
     },
 
+    {"goolord/alpha-nvim",
+      name = "Alpha",
+      config = function()
+        require("config.alpha").setup()
+      end,
+      dependencies = {
+        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
+      },
+    },
+
     {"lewis6991/gitsigns.nvim",
       name = "Git Signs",
       config = function()

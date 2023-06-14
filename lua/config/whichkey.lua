@@ -74,10 +74,11 @@ function M.setup()
     },
     t = {
       name = "Tree",
-      t = { "<cmd>NvimTreeToggle<cr>", "Tree Toggle" },
+      c = { "<cmd>NvimTreeCollapse<cr>", "Tree Collapse" },
       f = { "<cmd>NvimTreeFocus<cr>", "Tree Focus" },
-      c = { "<cmd>NvimTreeClose<cr>", "Tree Close" },
       o = { "<cmd>NvimTreeFindFile<cr>", "Tree Open" },
+      t = { "<cmd>NvimTreeToggle<cr>", "Tree Toggle" },
+      x = { "<cmd>NvimTreeClose<cr>", "Tree Close" },
     },
   }
 

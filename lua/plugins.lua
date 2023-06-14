@@ -134,6 +134,7 @@ function M.setup()
 
     {"nvim-tree/nvim-tree.lua",
       name = "Neovim Tree",
+      cmd = {"NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen", "NvimTreeFindFile"},
       config = function()
         require("config.tree").setup()
       end,

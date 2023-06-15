@@ -35,12 +35,17 @@ function M.setup()
       ["<C-x>"] = cmp.mapping.close(),
       ["<C-y>"] = cmp.mapping.confirm({
         behavior = cmp.ConfirmBehavior.Insert,
-        select = true,
       })
     }),
+    performance = {
+      max_view_entries = 20,
+    },
+    matching = {
+      disallow_fuzzy_matching = true,
+    },
     sources = {
-      { name = "nvim_lsp" },
-      { name = "buffer" },
+      { name = "nvim_lsp", group_index = 1 },
+      { name = "buffer", group_index = 2, max_item_count = 10 },
     }
   }
   cmp.setup(opts)

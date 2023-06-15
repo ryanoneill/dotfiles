@@ -69,6 +69,7 @@ function M.setup()
     t = {
       name = "Trouble",
       o = { "<cmd>Trouble document_diagnostics<cr>", "Document Diagnostics" },
+      w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics"},
       t = { "<cmd>Trouble lsp_type_definitions<cr>", "LSP Type Definitions" },
       d = { "<cmd>Trouble lsp_definitions<cr>", "LSP Definitions"},
       r = { "<cmd>Trouble lsp_references<cr>", "LSP References" },
@@ -102,7 +103,7 @@ function M.setup()
       t = { vim.lsp.buf.type_definitions, "Type Definitions" },
       a = { vim.lsp.buf.code_action, "Code Actions" },
       n = { vim.lsp.buf.rename, "Rename" },
-    }
+    },
   }
 
   whichkey.setup(conf)

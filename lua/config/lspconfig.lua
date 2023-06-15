@@ -28,9 +28,21 @@ function M.setup_rust(lspconfig, capabilities)
     capabilities = capabilities,
     settings = {
       ["rust-analyzer"] = {
-        checkOnSave = {
-          command = "clippy"
-        }
+        imports = {
+          granularity = {
+            group = "module",
+          },
+          prefix = "self",
+        },
+        cargo = {
+          buildScripts = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
+        checkOnSave = true,
       }
     }
   }

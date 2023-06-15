@@ -11,8 +11,13 @@ vim.opt.shiftwidth = 2                                               -- Indentat
 vim.opt.softtabstop = 2                                              -- Indentation without hard tabs
 vim.opt.wrap = false                                                 -- Don't wrap lines
 vim.opt.number = true                                                -- Turn on line numbers
+vim.opt.numberwidth = 2
 vim.opt.signcolumn = 'yes'                                           -- Always show signcolumn
 vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
+vim.opt.smartindent = true
+vim.opt.fillchars = { eob = " " }
 
 local plugins = require("plugins")
 plugins.setup()

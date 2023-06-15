@@ -74,6 +74,33 @@ function M.setup()
       end,
     },
 
+    {"glepnir/lspsaga.nvim",
+      name = "LSP Saga",
+      event = "LspAttach",
+      opts = {
+        lightbulb = {
+          enable = false,
+        },
+        outline = {
+          keys = {
+            expand_or_jump = "<cr>",
+            quit = "<esc>",
+          },
+        },
+        beacon = {
+          enable = false,
+        },
+        ui = {
+          title = false,
+          border = "rounded",
+        },
+      },
+      dependencies = {
+        {"nvim-tree/nvim-web-devicons", "Web Dev Icons"},
+        {"nvim-treesitter/nvim-treesitter", "Treesitter"},
+      },
+    },
+
     {"goolord/alpha-nvim",
       name = "Alpha",
       config = function()

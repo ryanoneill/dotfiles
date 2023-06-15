@@ -104,6 +104,29 @@ function M.setup()
       a = { vim.lsp.buf.code_action, "Code Actions" },
       n = { vim.lsp.buf.rename, "Rename" },
     },
+    l = {
+      name = "LSP Saga",
+      f = { "<cmd>Lspsaga lsp_finder<cr>", "Finder"},
+      a = { "<cmd>Lspsaga code_action<cr>", "Code Action"},
+      n = { "<cmd>Lspsaga rename<cr>", "Rename"},
+      N = { "<cmd>Lspsaga rename ++project<cr>", "Rename in Project"},
+      d = { "<cmd>Lspsaga peek_definition<cr>", "Peek Definition"},
+      D = { "<cmd>Lspsaga goto_definition<cr>", "Goto Definition"},
+      t = { "<cmd>Lspsaga peek_type_definition<cr>", "Peek Type Definition"},
+      T = { "<cmd>Lspsaga goto_type_definition<cr>", "Goto Type Definition"},
+      l = { "<cmd>Lspsaga show_line_diagnostics<cr>", "Show Line Diagnostics"},
+      b = { "<cmd>Lspsaga show_buf_diagnostics<cr>", "Show Buffer Diagnostics"},
+      w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Show Workspace Diagnostics"},
+      c = { "<cmd>Lspsaga show_cursor_diagnostics<cr>", "Show Cursor Diagnostics"},
+      j = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Diagnostic Jump Next"},
+      J = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Diagnostic Jump Previous"},
+      o = { "<cmd>Lspsaga outline<cr>", "Outline"},
+      h = { "<cmd>Lspsaga hover_doc<cr>", "Hover"},
+      H = { "<cmd>Lspsaga hover_doc ++keep<cr>", "Hover Keep"},
+      r = { "<cmd>Lspsaga incoming_calls<cr>", "Incoming Calls"},
+      R = { "<cmd>Lspsaga outgoing_calls<cr>", "Outgoing Calls"},
+      s = { "<cmd>Lspsaga term_toggle", "Terminal"},
+    }
   }
 
   whichkey.setup(conf)

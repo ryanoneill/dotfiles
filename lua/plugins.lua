@@ -128,12 +128,13 @@ function M.setup()
 
     {"nvim-lualine/lualine.nvim",
       name = "Lualine",
-      dependencies = {
-        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
-      },
       config = function()
         require("config.lualine").setup()
-      end
+      end,
+      dependencies = {
+        {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
+        {"arkav/lualine-lsp-progress", name = "Lualine LSP Progress"},
+      },
     },
 
     {"nvim-telescope/telescope.nvim",

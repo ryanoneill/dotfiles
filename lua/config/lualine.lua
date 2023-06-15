@@ -8,6 +8,15 @@ function M.setup()
     options = {
       section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
+      spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
+    },
+    sections = {
+      lualine_a = {'mode'},
+      lualine_b = {'branch', 'diff'},
+      lualine_c = {'filename' },
+      lualine_x = {'lsp_progress', 'encoding', 'fileformat', 'filetype'},
+      lualine_y = {'progress'},
+      lualine_z = {'location'},
     },
   }
   lualine.setup(options)

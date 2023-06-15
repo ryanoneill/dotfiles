@@ -41,9 +41,6 @@ function M.setup()
     sources = {
       { name = "nvim_lsp" },
       { name = "buffer" },
-      { name = "nvim_lua" },
-      { name = "path" },
-      { name = "cmdline" },
     }
   }
   cmp.setup(opts)

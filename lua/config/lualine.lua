@@ -5,6 +5,16 @@ function M.is_large()
   return columns >= 60
 end
 
+function M.shorten_filename(value, _)
+  if M.is_large() then
+    return value
+  elseif string.len(value) > 17 then
+    return string.sub(value, 1, 17) .. "..."
+  else
+    return value
+  end
+end
+
 function M.setup()
   local lualine = require("lualine")
   local options = {
@@ -33,19 +43,33 @@ function M.setup()
         {
           'diff',
           cond = M.is_large,
+        },
+        {
+          'diagnostics',
+          cond = M.is_large,
         }
       },
       lualine_c = {
         {
+          'filetype',
+          icon_only = true,
+          icon = {
+            align = 'right',
+          },
+          padding = {
+            left = 1,
+            right = 0,
+          },
+        },
+        {
           'filename',
+          file_status = false,
+          fmt = M.shorten_filename,
         }
       },
       lualine_x = {
         {
           'lsp_progress',
-        },
-        {
-          'filetype',
         },
         {
           'encoding',

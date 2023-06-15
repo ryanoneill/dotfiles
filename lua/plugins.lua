@@ -82,6 +82,7 @@ function M.setup()
           enable = false,
         },
         outline = {
+          close_after_jump = true,
           keys = {
             expand_or_jump = "<cr>",
             quit = "<esc>",

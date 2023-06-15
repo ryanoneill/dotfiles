@@ -1,6 +1,7 @@
 local M = {}
 
 function M.setup()
+  local vim = vim
   local whichkey = require("which-key")
   local builtin = require("telescope.builtin")
   local bufferline = require("bufferline")
@@ -88,6 +89,20 @@ function M.setup()
       u = { "<cmd>MasonUpdate<cr>", "Mason Update" },
       l = { "<cmd>MasonLog<cr>", "Mason Log" },
     },
+    p = {
+      name = "Paste",
+      c = { "A ✓<esc>", "Paste Checkmark" },
+    },
+    c = {
+      name = "Code",
+      d = { vim.lsp.buf.declaration, "Declaration" },
+      h = { vim.lsp.buf.hover, "Hover" },
+      i = { vim.lsp.buf.implementation, "Implementation" },
+      s = { vim.lsp.buf.signature_help, "Signature Help" },
+      t = { vim.lsp.buf.type_definitions, "Type Definitions" },
+      a = { vim.lsp.buf.code_action, "Code Actions" },
+      n = { vim.lsp.buf.rename, "Rename" },
+    }
   }
 
   whichkey.setup(conf)

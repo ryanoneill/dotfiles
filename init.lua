@@ -22,16 +22,6 @@ vim.opt.fillchars = { eob = " " }
 local plugins = require("plugins")
 plugins.setup()
 
-local normal_mode = 'n'
-local visual_mode = 'v'
-
--- Yank to Clipboard
-vim.keymap.set(normal_mode, '<leader>yc', '"+y')
-vim.keymap.set(visual_mode, '<leader>yc', '"+y')
-
--- Paste Checkmark (with Space) at End of Row
-vim.keymap.set(normal_mode, '<leader>ch', 'A ✓<esc>')
-
 -- Word Under Cursor
 local function open_source()
   -- Rust Specific for now

@@ -84,6 +84,23 @@ function M.setup()
       },
     },
 
+    {"hrsh7th/nvim-cmp",
+      name = "Neovim Completion",
+      config = function()
+        require("config.cmp").setup()
+      end,
+      dependencies = {
+        {"neovim/nvim-lspconfig", name = "Neovim LSP Config"},
+        {"hrsh7th/cmp-nvim-lsp", name = "Neovim Completion LSP"},
+        {"hrsh7th/cmp-buffer",  name = "Neovim Completion Buffer"},
+        {"hrsh7th/cmp-path",  name = "Neovim Completion Path"},
+        {"hrsh7th/cmp-cmdline",  name = "Neovim Completion Command Line"},
+        {"L3MON4D3/LuaSnip", name = "LuaSnip"},
+        {"saadparwaiz1/cmp_luasnip", name = "LuaSnip Completion"},
+        {"onsails/lspkind.nvim", name = "Neovim Completion Icons"},
+      },
+    },
+
     {"lewis6991/gitsigns.nvim",
       name = "Git Signs",
       config = function()
@@ -96,11 +113,6 @@ function M.setup()
       config = function()
         require("config.blankline").setup()
       end,
-    },
-
-    {"neoclide/coc.nvim",
-      name = "COC",
-      branch = "release"
     },
 
     {"numToStr/Comment.nvim",
@@ -171,6 +183,22 @@ function M.setup()
       dependencies = {
         {"nvim-telescope/telescope.nvim", name = "Telescope"},
         {"akinsho/bufferline.nvim", name = "Bufferline"},
+      }
+    },
+
+    {"williamboman/mason.nvim",
+      name = "Mason",
+      opts = {},
+      build = ":MasonUpdate",
+    },
+
+    {"williamboman/mason-lspconfig.nvim",
+      name = "Mason LSP Config",
+      config = function()
+        require("config.lspconfig").setup()
+      end,
+      dependencies = {
+        {"neovim/nvim-lspconfig", name = "Neovim LSP Config"},
       }
     },
 

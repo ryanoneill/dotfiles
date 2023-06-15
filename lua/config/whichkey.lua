@@ -81,6 +81,12 @@ function M.setup()
       x = { "<cmd>NvimTreeClose<cr>", "Tree Close" },
     },
     h = { "<cmd>HopWord<cr>", "Hop Word" },
+    m = {
+      name = "Mason",
+      m = { "<cmd>Mason<cr>", "Mason" },
+      u = { "<cmd>MasonUpdate<cr>", "Mason Update" },
+      l = { "<cmd>MasonLog<cr>", "Mason Log" },
+    },
   }
 
   whichkey.setup(conf)

@@ -8,7 +8,11 @@ function M.setup()
     options = {
       section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
+      display_components = { 'spinner', { 'percentage' } },
       spinner_symbols = { '🌑 ', '🌒 ', '🌓 ', '🌔 ', '🌕 ', '🌖 ', '🌗 ', '🌘 ' },
+      separators = {
+        progress = '',
+      },
     },
     sections = {
       lualine_a = {'mode'},

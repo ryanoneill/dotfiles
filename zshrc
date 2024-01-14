@@ -34,3 +34,5 @@ test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
 
 # To customize prompt, run `p10k configure` or edit /opt/workspace/dotfiles/p10k.zsh.
 [[ ! -f /opt/workspace/dotfiles/p10k.zsh ]] || source /opt/workspace/dotfiles/p10k.zsh
+
+export GPG_TTY=$TTY

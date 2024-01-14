@@ -138,9 +138,8 @@ function M.setup()
 
     {"lukas-reineke/indent-blankline.nvim",
       name = "Indent Blankline",
-      config = function()
-        require("config.blankline").setup()
-      end,
+      main = "ibl",
+      opts = {},
     },
 
     {"numToStr/Comment.nvim",

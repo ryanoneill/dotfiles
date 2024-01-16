@@ -129,6 +129,10 @@ function M.setup()
       },
     },
 
+    {"lambdalisue/suda.vim",
+      name = "Suda",
+    },
+
     {"lewis6991/gitsigns.nvim",
       name = "Git Signs",
       config = function()

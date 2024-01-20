@@ -19,8 +19,8 @@ set wildmode=full
 
 " General Settings
 set expandtab                                                        " Tabs as spaces
-set shiftwidth=2                                                     " Indentation of 2 spaces
-set softtabstop=2                                                    " Indentation without hard tabs
+set shiftwidth=4                                                     " Indentation of 4 spaces
+set softtabstop=4                                                    " Indentation without hard tabs
 set nowrap                                                           " Don't wrap lines
 set number                                                           " Turn on line numbers
 

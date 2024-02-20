@@ -6,13 +6,18 @@ function M.setup_lua(lspconfig, capabilities)
     settings = {
       Lua = {
         diagnostics = {
-          globals = { "vim" },
+          globals = { "vim", "describe", "it" },
           disable = { "different-requires" },
+        },
+        runtime = {
+          version = "Lua 5.1",
         },
         workspace = {
           library = {
             [vim.fn.expand("$VIMRUNTIME/lua")] = true,
             [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+            [vim.fn.expand("~/.luarocks/share/lua/5.1/?.lua")] = true,
+            [vim.fn.expand("~/.luarocks/share/lua/5.1/?/init.lua")] = true,
           },
           maxPreload = 100000,
           preloadFileSize = 10000,

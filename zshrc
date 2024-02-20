@@ -26,6 +26,13 @@ fpath+=$HOME/.zsh_functions
 path+=/opt/bin
 path+=$HOME/.local/bin
 path+=$HOME/.local/share/coursier/bin
+path+=$HOME/go/bin
+
+# prepend
+path=('/usr/local/go/bin' $path)
+export PATH
+
+export GO_HOME=/usr/local/go
 
 alias gpsom='git push origin main'
 alias gplom='git pull origin main'

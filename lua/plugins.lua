@@ -27,6 +27,9 @@ function M.setup()
       missing = true,
       colorscheme = { "nord" },
     },
+    pkg = {
+      enabled = false,
+    }
   }
 
   lazy.setup({

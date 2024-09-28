@@ -54,7 +54,7 @@ cursor = "#d8dee9"
 text = "#2e3440"
 
 [font]
-size = 22.0
+size = 18.0
 
 [font.normal]
 family = "FiraCode Nerd Font"

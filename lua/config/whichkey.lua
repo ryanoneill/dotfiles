@@ -57,7 +57,8 @@ function M.setup()
 
   local trouble = {
     { "<leader>t", group = "Trouble" },
-    { "<leader>to", "<cmd>Trouble document_diagnostics<cr>", desc = "Document Diagnostics" },
+    -- { "<leader>to", "<cmd>Trouble document_diagnostics<cr>", desc = "Document Diagnostics" },
+    { "<leader>to", "<cmd>Trouble diagnostics toggle<cr>", desc = "Document Diagnostics" },
     { "<leader>tw", "<cmd>Trouble workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
     { "<leader>tt", "<cmd>Trouble lsp_type_definitions<cr>", desc = "LSP Type Definitions" },
     { "<leader>td", "<cmd>Trouble lsp_definitions<cr>", desc = "LSP Definitions" },

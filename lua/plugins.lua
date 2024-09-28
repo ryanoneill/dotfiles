@@ -61,6 +61,8 @@ function M.setup()
 
     {"folke/trouble.nvim",
       name = "Trouble",
+      opts = {},
+      cmd = "Trouble",
       dependencies = {
         {"nvim-tree/nvim-web-devicons", name = "Web Dev Icons"},
       },
@@ -147,6 +149,10 @@ function M.setup()
       name = "Indent Blankline",
       main = "ibl",
       opts = {},
+    },
+
+    {"NoahTheDuke/vim-just",
+      name = "Just",
     },
 
     {"numToStr/Comment.nvim",

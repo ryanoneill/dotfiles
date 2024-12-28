@@ -19,6 +19,10 @@ vim.opt.cursorline = true
 vim.opt.smartindent = true
 vim.opt.fillchars = { eob = " " }
 
+-- Disable the mouse so that bumping the touchpad
+-- on my laptop won't move the cursor when typing.
+vim.opt.mouse = ""
+
 local plugins = require("plugins")
 plugins.setup()
 
